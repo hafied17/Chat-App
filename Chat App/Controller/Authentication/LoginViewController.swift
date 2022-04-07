@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     
     private let dontHaveAccountButton: UIButton = {
         let button = Utilities().attributedButton("Don't have an account?", " Sign Up")
-        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -72,10 +72,12 @@ class LoginViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleLogin() {
-        
     }
-    @objc func handleSignUp() {
-        
+    @objc func handleShowSignUp() {
+        let controller = RegisterViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+
+       
     }
      
     // MARK: - Helpers
@@ -95,7 +97,7 @@ class LoginViewController: UIViewController {
         stack.distribution = .fillEqually
         
         view.addSubview(stack)
-        stack.anchor(top: logoImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 16, paddingRight: 16 )
+        stack.anchor(top: logoImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 40, paddingRight: 40)
