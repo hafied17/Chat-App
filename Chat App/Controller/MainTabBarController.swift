@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabBarController: UITabBarController {
     // MARK: - Property
@@ -22,11 +23,37 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        logUserOut()
+        authenticateUserAndConfigureUI()
         configureViewController()
         configureUI()
 
     }
+    
+    // MARK: - API
+    
+    func authenticateUserAndConfigureUI() {
+        if Auth.auth().currentUser == nil {
+            print("belum login")
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } else {
+            print("sudah login")
+        }
+    }
+    
+    func logUserOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+    
     // MARK: - Selectors
     
     @objc func actionButtonTapped() {

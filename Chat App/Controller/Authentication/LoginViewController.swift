@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
     
     private let passwordTextField: UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Password")
+        tf.isSecureTextEntry = true
         return tf
     }()
     
@@ -72,6 +73,17 @@ class LoginViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.shared.logUserIn(with: email, password: password) { result, error in
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+                return
+            }
+            
+            print("successful log in")
+        }
     }
     @objc func handleShowSignUp() {
         let controller = RegisterViewController()

@@ -108,8 +108,7 @@ class RegisterViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func handleShowLogin() {
-        let controller = LoginViewController()
-        navigationController?.pushViewController(controller, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func handleRegistration() {
