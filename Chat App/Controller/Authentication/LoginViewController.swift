@@ -81,8 +81,13 @@ class LoginViewController: UIViewController {
                 print("error: \(error.localizedDescription)")
                 return
             }
+            guard let window = UIApplication.shared.windows.first(where:  { $0.isKeyWindow}) else {
+                return
+            }
+            guard let tab = window.rootViewController as? MainTabBarController else { return }
+            tab.authenticateUserAndConfigureUI()
             
-            print("successful log in")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     @objc func handleShowSignUp() {
