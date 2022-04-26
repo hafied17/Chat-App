@@ -10,6 +10,14 @@ import Firebase
 
 class MainTabBarController: UITabBarController {
     // MARK: - Property
+    var user: User? {
+        didSet{
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -26,12 +34,16 @@ class MainTabBarController: UITabBarController {
         
 //        logUserOut()
         authenticateUserAndConfigureUI()
-        configureViewController()
-        configureUI()
 
     }
     
     // MARK: - API
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
+    }
     
     func authenticateUserAndConfigureUI() {
         if Auth.auth().currentUser == nil {
@@ -43,6 +55,9 @@ class MainTabBarController: UITabBarController {
             }
         } else {
             print("sudah login")
+            configureUI()
+            configureViewController()
+            fetchUser()
         }
     }
     
