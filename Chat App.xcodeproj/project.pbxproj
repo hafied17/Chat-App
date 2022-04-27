@@ -13,6 +13,9 @@
 		19049AB327B74EB7005723F3 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AB227B74EB7005723F3 /* FeedController.swift */; };
 		19049AB527B74ECA005723F3 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AB427B74EC9005723F3 /* NotificationsController.swift */; };
 		19049AB927B74F01005723F3 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AB827B74F01005723F3 /* ConversationsController.swift */; };
+		19097AB728191E8200AFBE39 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19097AB628191E8200AFBE39 /* UploadTweetController.swift */; };
+		19097AB92819377600AFBE39 /* CaptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19097AB82819377600AFBE39 /* CaptionTextView.swift */; };
+		19097ABB28193E2200AFBE39 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19097ABA28193E2200AFBE39 /* TweetService.swift */; };
 		1924622E281682120002BEE0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924622D281682120002BEE0 /* UserService.swift */; };
 		1949393C27FA8577003D7DC8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1949393B27FA8577003D7DC8 /* Utilities.swift */; };
 		19524DB328000F4F00134F44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19524DB228000F4F00134F44 /* GoogleService-Info.plist */; };
@@ -35,6 +38,9 @@
 		19049AB227B74EB7005723F3 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		19049AB427B74EC9005723F3 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		19049AB827B74F01005723F3 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
+		19097AB628191E8200AFBE39 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
+		19097AB82819377600AFBE39 /* CaptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTextView.swift; sourceTree = "<group>"; };
+		19097ABA28193E2200AFBE39 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		1924622D281682120002BEE0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		1949393B27FA8577003D7DC8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		19524DB228000F4F00134F44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				19049AB227B74EB7005723F3 /* FeedController.swift */,
 				19049AB427B74EC9005723F3 /* NotificationsController.swift */,
 				19049AB827B74F01005723F3 /* ConversationsController.swift */,
+				19097AB628191E8200AFBE39 /* UploadTweetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 			children = (
 				1953D59E2801343C00FF00DA /* AuthService.swift */,
 				1924622D281682120002BEE0 /* UserService.swift */,
+				19097ABA28193E2200AFBE39 /* TweetService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 		19049AA727B74BA7005723F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				19097AB82819377600AFBE39 /* CaptionTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,12 +313,14 @@
 			files = (
 				1924622E281682120002BEE0 /* UserService.swift in Sources */,
 				19A1743927F80064004958C4 /* LoginViewController.swift in Sources */,
+				19097AB92819377600AFBE39 /* CaptionTextView.swift in Sources */,
 				19A1743B27F8006D004958C4 /* RegisterViewController.swift in Sources */,
 				1949393C27FA8577003D7DC8 /* Utilities.swift in Sources */,
 				19049AB527B74ECA005723F3 /* NotificationsController.swift in Sources */,
 				19049AB927B74F01005723F3 /* ConversationsController.swift in Sources */,
 				8010017027B7281F00D0F326 /* AppDelegate.swift in Sources */,
 				1953D59F2801343C00FF00DA /* AuthService.swift in Sources */,
+				19097AB728191E8200AFBE39 /* UploadTweetController.swift in Sources */,
 				19BF1A572817C4B8009453F2 /* User.swift in Sources */,
 				19A1743627F7F6E3004958C4 /* Extensions.swift in Sources */,
 				19049AB127B74E9C005723F3 /* ExploreController.swift in Sources */,
@@ -317,6 +328,7 @@
 				8010017227B7281F00D0F326 /* SceneDelegate.swift in Sources */,
 				19049AAB27B74C66005723F3 /* MainTabBarController.swift in Sources */,
 				19524DB5280021F500134F44 /* Constants.swift in Sources */,
+				19097ABB28193E2200AFBE39 /* TweetService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
