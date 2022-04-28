@@ -8,7 +8,9 @@
 import UIKit
 import SDWebImage
 
-class FeedController: UIViewController {
+private let reusableIdentifier = "TweetCell"
+
+class FeedController: UICollectionViewController {
 
     // MARK: - Property
     
@@ -23,11 +25,22 @@ class FeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchTweets()
+    }
+    
+    // MARK: - API
+    
+    func fetchTweets() {
+        TweetService.shared.fetchTweets { tweet in
+            print("debug: \(tweet)")
+        }
     }
     
     // MARK: - Helper
         
     func configureUI() {
+        collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reusableIdentifier)
+        collectionView.backgroundColor = .white
         view.backgroundColor = .white
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
@@ -46,5 +59,21 @@ class FeedController: UIViewController {
         profileImageView.sd_setImage(with: user.profileImage, completed: nil)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
+    }
+}
+
+extension FeedController {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        5
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath)
+        return cell
+    }
+}
+
+extension FeedController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 200)
     }
 }

@@ -25,6 +25,8 @@
 		19A1743927F80064004958C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A1743827F80064004958C4 /* LoginViewController.swift */; };
 		19A1743B27F8006D004958C4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A1743A27F8006D004958C4 /* RegisterViewController.swift */; };
 		19BF1A572817C4B8009453F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BF1A562817C4B8009453F2 /* User.swift */; };
+		19F71184281A2D4800CE34EB /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F71183281A2D4800CE34EB /* Tweet.swift */; };
+		19F71186281A3A8F00CE34EB /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F71185281A3A8F00CE34EB /* TweetCell.swift */; };
 		8010017027B7281F00D0F326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010016F27B7281F00D0F326 /* AppDelegate.swift */; };
 		8010017227B7281F00D0F326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8010017127B7281F00D0F326 /* SceneDelegate.swift */; };
 		8010017727B7281F00D0F326 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8010017527B7281F00D0F326 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		19A1743827F80064004958C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		19A1743A27F8006D004958C4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		19BF1A562817C4B8009453F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		19F71183281A2D4800CE34EB /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		19F71185281A3A8F00CE34EB /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		8010016C27B7281E00D0F326 /* Chat App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8010016F27B7281F00D0F326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8010017127B7281F00D0F326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				19BF1A562817C4B8009453F2 /* User.swift */,
+				19F71183281A2D4800CE34EB /* Tweet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				19097AB82819377600AFBE39 /* CaptionTextView.swift */,
+				19F71185281A3A8F00CE34EB /* TweetCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				1949393C27FA8577003D7DC8 /* Utilities.swift in Sources */,
 				19049AB527B74ECA005723F3 /* NotificationsController.swift in Sources */,
 				19049AB927B74F01005723F3 /* ConversationsController.swift in Sources */,
+				19F71186281A3A8F00CE34EB /* TweetCell.swift in Sources */,
 				8010017027B7281F00D0F326 /* AppDelegate.swift in Sources */,
 				1953D59F2801343C00FF00DA /* AuthService.swift in Sources */,
 				19097AB728191E8200AFBE39 /* UploadTweetController.swift in Sources */,
@@ -328,6 +335,7 @@
 				8010017227B7281F00D0F326 /* SceneDelegate.swift in Sources */,
 				19049AAB27B74C66005723F3 /* MainTabBarController.swift in Sources */,
 				19524DB5280021F500134F44 /* Constants.swift in Sources */,
+				19F71184281A2D4800CE34EB /* Tweet.swift in Sources */,
 				19097ABB28193E2200AFBE39 /* TweetService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

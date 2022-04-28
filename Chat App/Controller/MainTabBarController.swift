@@ -91,7 +91,7 @@ class MainTabBarController: UITabBarController {
     }
     
     func configureViewController() {
-        let feed = FeedController()
+        let feed = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         let nav1 = UINavigationController(rootViewController: feed)
         nav1.tabBarItem.image = UIImage(named: "home_unselected")
         
