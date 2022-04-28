@@ -20,6 +20,10 @@ class FeedController: UICollectionViewController {
         }
     }
     
+    private var tweets = [Tweet]() {
+        didSet { collectionView.reloadData() }
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -31,8 +35,8 @@ class FeedController: UICollectionViewController {
     // MARK: - API
     
     func fetchTweets() {
-        TweetService.shared.fetchTweets { tweet in
-            print("debug: \(tweet)")
+        TweetService.shared.fetchTweets { tweets in
+            self.tweets = tweets
         }
     }
     
@@ -62,18 +66,23 @@ class FeedController: UICollectionViewController {
     }
 }
 
+//MARK: - UICollectionViewDelegate/DataSource
+
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        return tweets.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as! TweetCell
+        cell.tweet = tweets[indexPath.row]
         return cell
     }
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
+
 extension FeedController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        return CGSize(width: view.frame.width, height: 120)
     }
 }
