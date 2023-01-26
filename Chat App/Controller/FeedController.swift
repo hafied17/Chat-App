@@ -60,7 +60,7 @@ class FeedController: UICollectionViewController {
         profileImageView.setDimensions(width: 32, height: 32)
         profileImageView.layer.cornerRadius = 32/2
         profileImageView.layer.masksToBounds = true
-        profileImageView.sd_setImage(with: user.profileImage, completed: nil)
+        profileImageView.sd_setImage(with: user.profileImageUrl, completed: nil)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
     }

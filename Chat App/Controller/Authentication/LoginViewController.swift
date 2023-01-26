@@ -99,7 +99,8 @@ class LoginViewController: UIViewController {
      
     // MARK: - Helpers
     func configureUI() {
-
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         view.backgroundColor = .twitterBlue
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
@@ -119,4 +120,26 @@ class LoginViewController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 40, paddingRight: 40)
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+        
+    }
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.layer.borderColor = UIColor(red: 46.0/255.0, green: 173.0/255.0, blue: 227.0/255.0, alpha: 1.0).cgColor
+//        textField.layer.borderWidth = 1.5
+//        textField.layer.cornerRadius = 5.0
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textField.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0).cgColor
+//        textField.layer.borderWidth = 0.5
+//        textField.layer.cornerRadius = 5.0
+//    }
+    
 }

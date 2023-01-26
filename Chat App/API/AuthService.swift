@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
+import FirebaseAnalytics
 
 struct AuthCredentials {
     let email: String

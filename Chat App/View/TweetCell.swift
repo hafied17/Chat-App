@@ -82,7 +82,7 @@ class TweetCell: UICollectionViewCell{
         backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingRight: 8)
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 8, paddingRight: 8)
         let stack = UIStackView(arrangedSubviews: [infoLabel, captionLabel])
         stack.axis = .vertical
         stack.distribution = .fillProportionally
@@ -136,10 +136,11 @@ class TweetCell: UICollectionViewCell{
         guard let tweet = tweet else {
             return
         }
+        let viewModel = TweetViewModel(tweet: tweet)
         
         captionLabel.text = tweet.caption
         
-        profileImageView.sd_setImage(with: tweet.user.profileImage)
-        infoLabel.text = tweet.user.username
+        profileImageView.sd_setImage(with: viewModel.profileImage)
+        infoLabel.attributedText = viewModel.userInfoText
     }
 }
