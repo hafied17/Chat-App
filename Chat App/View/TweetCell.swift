@@ -5,9 +5,11 @@
 //  Created by VJB-IT on 28/4/22.
 //
 
-import Foundation
 import UIKit
 
+protocol TweetCellDelegate: AnyObject {
+    func handleProfileImageTapped()
+}
 class TweetCell: UICollectionViewCell{
     
     //MARK: - Properties
@@ -16,13 +18,19 @@ class TweetCell: UICollectionViewCell{
         didSet { configure() }
     }
     
-    private let profileImageView: UIImageView = {
+    weak var delegate: TweetCellDelegate?
+    
+    private lazy var profileImageView: UIImageView = {
        let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         iv.setDimensions(width: 48, height: 48)
         iv.layer.cornerRadius = 48/2
         iv.backgroundColor = .twitterBlue
+        iv.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
+        iv.addGestureRecognizer(tap)
         return iv
     }()
     
@@ -113,6 +121,11 @@ class TweetCell: UICollectionViewCell{
     }
     
     //MARK: - Selectors
+    
+    @objc func handleProfileImageTapped() {
+        print("debug: profile image tapped")
+        delegate?.handleProfileImageTapped()
+    }
     
     @objc func handleCommentTapped() {
         
