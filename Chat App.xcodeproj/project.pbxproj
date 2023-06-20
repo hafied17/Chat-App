@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		101CB8A72981EFB90064D528 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CB8A62981EFB90064D528 /* TweetViewModel.swift */; };
 		105F05A42984256A008CDD64 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F05A32984256A008CDD64 /* ProfileHeader.swift */; };
+		106628972A3D0E12007128D0 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106628962A3D0E12007128D0 /* ProfileFilterCell.swift */; };
+		1066289B2A3D1C8A007128D0 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066289A2A3D1C8A007128D0 /* ProfileHeaderViewModel.swift */; };
 		10A8B4952983284200E60D6F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8B4942983284200E60D6F /* ProfileViewController.swift */; };
 		10BEA39229802F2200A6357F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10BEA39129802F2200A6357F /* GoogleService-Info.plist */; };
+		10D5F79E2A40FD48002635B5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D5F79D2A40FD48002635B5 /* UserCell.swift */; };
+		10E661682A200D9300DD4C71 /* ProfileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E661672A200D9300DD4C71 /* ProfileFilterView.swift */; };
 		19049AAB27B74C66005723F3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AAA27B74C66005723F3 /* MainTabBarController.swift */; };
 		19049AB127B74E9C005723F3 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AB027B74E9B005723F3 /* ExploreController.swift */; };
 		19049AB327B74EB7005723F3 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19049AB227B74EB7005723F3 /* FeedController.swift */; };
@@ -42,8 +46,12 @@
 		0EBD768987F394F854586A46 /* Pods-Chat App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat App.debug.xcconfig"; path = "Target Support Files/Pods-Chat App/Pods-Chat App.debug.xcconfig"; sourceTree = "<group>"; };
 		101CB8A62981EFB90064D528 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		105F05A32984256A008CDD64 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		106628962A3D0E12007128D0 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
+		1066289A2A3D1C8A007128D0 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		10A8B4942983284200E60D6F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		10BEA39129802F2200A6357F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		10D5F79D2A40FD48002635B5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		10E661672A200D9300DD4C71 /* ProfileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterView.swift; sourceTree = "<group>"; };
 		19049AAA27B74C66005723F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		19049AB027B74E9B005723F3 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		19049AB227B74EB7005723F3 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				101CB8A62981EFB90064D528 /* TweetViewModel.swift */,
+				1066289A2A3D1C8A007128D0 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -142,6 +151,9 @@
 				19097AB82819377600AFBE39 /* CaptionTextView.swift */,
 				19F71185281A3A8F00CE34EB /* TweetCell.swift */,
 				105F05A32984256A008CDD64 /* ProfileHeader.swift */,
+				10E661672A200D9300DD4C71 /* ProfileFilterView.swift */,
+				106628962A3D0E12007128D0 /* ProfileFilterCell.swift */,
+				10D5F79D2A40FD48002635B5 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,11 +197,11 @@
 		8010016E27B7281E00D0F326 /* Chat App */ = {
 			isa = PBXGroup;
 			children = (
-				101CB8A52981EFA10064D528 /* ViewModel */,
-				19049AA727B74BA7005723F3 /* View */,
 				19049AA627B74BA2005723F3 /* Model */,
-				19049AA427B74B9D005723F3 /* API */,
+				19049AA727B74BA7005723F3 /* View */,
+				101CB8A52981EFA10064D528 /* ViewModel */,
 				19049AA327B74B9B005723F3 /* Controller */,
+				19049AA427B74B9D005723F3 /* API */,
 				19049AA227B74B98005723F3 /* Utils */,
 				8010016F27B7281F00D0F326 /* AppDelegate.swift */,
 				8010017127B7281F00D0F326 /* SceneDelegate.swift */,
@@ -329,13 +341,16 @@
 				1924622E281682120002BEE0 /* UserService.swift in Sources */,
 				19A1743927F80064004958C4 /* LoginViewController.swift in Sources */,
 				19097AB92819377600AFBE39 /* CaptionTextView.swift in Sources */,
+				106628972A3D0E12007128D0 /* ProfileFilterCell.swift in Sources */,
 				19A1743B27F8006D004958C4 /* RegisterViewController.swift in Sources */,
+				10D5F79E2A40FD48002635B5 /* UserCell.swift in Sources */,
 				1949393C27FA8577003D7DC8 /* Utilities.swift in Sources */,
 				19049AB527B74ECA005723F3 /* NotificationsController.swift in Sources */,
 				10A8B4952983284200E60D6F /* ProfileViewController.swift in Sources */,
 				19049AB927B74F01005723F3 /* ConversationsController.swift in Sources */,
 				105F05A42984256A008CDD64 /* ProfileHeader.swift in Sources */,
 				19F71186281A3A8F00CE34EB /* TweetCell.swift in Sources */,
+				1066289B2A3D1C8A007128D0 /* ProfileHeaderViewModel.swift in Sources */,
 				8010017027B7281F00D0F326 /* AppDelegate.swift in Sources */,
 				1953D59F2801343C00FF00DA /* AuthService.swift in Sources */,
 				19097AB728191E8200AFBE39 /* UploadTweetController.swift in Sources */,
@@ -346,6 +361,7 @@
 				101CB8A72981EFB90064D528 /* TweetViewModel.swift in Sources */,
 				8010017227B7281F00D0F326 /* SceneDelegate.swift in Sources */,
 				19049AAB27B74C66005723F3 /* MainTabBarController.swift in Sources */,
+				10E661682A200D9300DD4C71 /* ProfileFilterView.swift in Sources */,
 				19524DB5280021F500134F44 /* Constants.swift in Sources */,
 				19F71184281A2D4800CE34EB /* Tweet.swift in Sources */,
 				19097ABB28193E2200AFBE39 /* TweetService.swift in Sources */,
