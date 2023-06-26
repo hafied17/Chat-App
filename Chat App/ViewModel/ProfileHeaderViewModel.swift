@@ -46,7 +46,7 @@ struct ProfileHeaderViewModel {
     init(user: User) {
         self.user = user
         
-        self.usernameText = "@  " + user.username
+        self.usernameText = "@" + user.username
     }
     func attributedText(withValue value: Int, text: String) -> NSAttributedString {
         let attributedTitle = NSMutableAttributedString(string: "\(value)",
