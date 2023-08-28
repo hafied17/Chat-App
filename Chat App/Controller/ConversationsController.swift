@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConversationsController: UIViewController {
+class ConversationsController: UITableViewController {
 
     // MARK: - Property
     
@@ -23,6 +23,12 @@ class ConversationsController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Message"
+
     }
 
+}
+
+extension ConversationsController {
+
+    
 }

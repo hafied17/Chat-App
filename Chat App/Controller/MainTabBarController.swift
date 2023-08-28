@@ -80,7 +80,7 @@ class MainTabBarController: UITabBarController {
             return
         }
 
-        let controller = UploadTweetController(user: user)
+        let controller = UploadTweetController(user: user, config: .tweet)
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true, completion: nil)
@@ -105,6 +105,7 @@ class MainTabBarController: UITabBarController {
         
         let notifications = NotificationsController()
         let nav3 = templateNavigationController(image: UIImage(named: "like_unselected"), rootViewController: notifications)
+
         
         let conversations = ConversationsController()
         let nav4 = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootViewController: conversations)

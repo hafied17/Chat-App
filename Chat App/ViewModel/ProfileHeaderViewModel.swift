@@ -28,19 +28,27 @@ struct ProfileHeaderViewModel {
     let usernameText: String
     
     var followersString: NSAttributedString? {
-        return attributedText(withValue: 0, text: "Followers")
+        return attributedText(withValue: user.stats?.followers ?? 0, text: " Followers")
     }
     
     var followingString: NSAttributedString? {
-        return attributedText(withValue: 2, text: "Following")
+        return attributedText(withValue: user.stats?.following ?? 0, text: " Following")
     }
     
     var actionButtonTitles: String {
         if user.isCurrentUser {
             return "Edit Profile"
-        } else {
+        }
+        
+        if !user.isFollowed && !user.isCurrentUser {
             return "Follow"
         }
+        
+        if user.isFollowed {
+            return "Following"
+        }
+        
+        return "Loading"
     }
     
     init(user: User) {
@@ -48,12 +56,13 @@ struct ProfileHeaderViewModel {
         
         self.usernameText = "@" + user.username
     }
-    func attributedText(withValue value: Int, text: String) -> NSAttributedString {
+    
+    fileprivate func attributedText(withValue value: Int, text: String) -> NSAttributedString {
         let attributedTitle = NSMutableAttributedString(string: "\(value)",
-                                                        attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
+                                                        attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.black])
         attributedTitle.append(NSAttributedString(string: "\(text)",
-                                                  attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
-                                                               NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 14),
+                                                               .foregroundColor: UIColor.lightGray]))
         return attributedTitle
     }
 }

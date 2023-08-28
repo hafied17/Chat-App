@@ -9,6 +9,8 @@ import UIKit
 
 protocol ProfileHeaderDelegate: AnyObject {
     func handleDismissal()
+    func handleEditProfile(_ header: ProfileHeader)
+    func didSelect(filter: ProfileFilterOptions)
 }
 
 class ProfileHeader: UICollectionReusableView {
@@ -50,7 +52,7 @@ class ProfileHeader: UICollectionReusableView {
         return iv
     }()
     
-    private lazy var editProfileFollowButton: UIButton = {
+    lazy var editProfileFollowButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Loading", for: .normal)
         button.layer.borderColor = UIColor.twitterBlue.cgColor
@@ -149,7 +151,7 @@ class ProfileHeader: UICollectionReusableView {
         
         let followStack = UIStackView(arrangedSubviews: [followingLabel, followerLabel])
         followStack.axis = .horizontal
-        followStack.spacing = 0
+        followStack.spacing = 5
         followStack.distribution = .fillEqually
         
         addSubview(followStack)
@@ -158,8 +160,8 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(filterBar)
         filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
         
-        addSubview(underlineView)
-        underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width/3, height: 2)
+//        addSubview(underlineView)
+//        underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width/3, height: 2)
         
     }
     required init?(coder: NSCoder) {
@@ -173,7 +175,7 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     @objc func handleEditProfileFollow() {
-        
+        delegate?.handleEditProfile(self)
     }
     
     @objc func handleFollowingTapped() {
@@ -194,6 +196,7 @@ class ProfileHeader: UICollectionReusableView {
         profileImageView.sd_setImage(with: user.profileImageUrl)
         
         editProfileFollowButton.setTitle(viewModel.actionButtonTitles, for: .normal)
+//        print("kentang \(viewModel.followingString)")
         followerLabel.attributedText = viewModel.followersString
         followingLabel.attributedText = viewModel.followingString
         
@@ -205,15 +208,9 @@ class ProfileHeader: UICollectionReusableView {
 // MARK: - ProfileFilterViewDelegate
 
 extension ProfileHeader: ProfileFilterViewDelegate {
-    func filterView(_ view: ProfileFilterView, didSelect indexPath: IndexPath) {
-        guard let cell = view.collectionView.cellForItem(at: indexPath) as? ProfileFilterCell else {
-            return
-        }
-        
-        let xPosition = cell.frame.origin.x
-        UIView.animate(withDuration: 0.3) {
-            self.underlineView.frame.origin.x = xPosition
-        }
+    func filterView(_ view: ProfileFilterView, didSelect index: Int) {
+        guard let filter = ProfileFilterOptions(rawValue: index) else { return }
+        delegate?.didSelect(filter: filter)
     }
     
 }
