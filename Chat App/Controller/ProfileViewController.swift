@@ -177,12 +177,12 @@ extension ProfileController: ProfileHeaderDelegate {
     }
     
     func handleEditProfile(_ header: ProfileHeader) {
-        print("debug is followed \(user.isFollowed) before tap")
-        
-//        user.isFollowed.toggle()
         if user.isCurrentUser {
-            print("debug: show edit profile contoreol")
-//            try! Auth.auth().signOut()
+            let controller = EditProfileController(user: user)
+            controller.delegate = self
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: true, completion: nil)
             return
         }
         
@@ -207,6 +207,17 @@ extension ProfileController: ProfileHeaderDelegate {
     
     func handleDismissal() {
         navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+// MARK: - EditProfileControllerDelegate
+
+extension ProfileController: EditProfileControllerDelegate {
+    func controller(_ controller: EditProfileController, wantsToUpdate user: User) {
+        controller.dismiss(animated: true, completion: nil)
+        self.user = user
+        self.collectionView.reloadData()
     }
     
 }

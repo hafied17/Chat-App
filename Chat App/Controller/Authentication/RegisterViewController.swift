@@ -125,7 +125,6 @@ class RegisterViewController: UIViewController {
 
         let credentials = AuthCredentials.init(email: email, password: password, fullname: fullName, username: username, profileImage: profileImage)
         AuthService.shared.registerUser(credentials: credentials) { (error, ref) in
-            print("ref \(ref)")
             guard let window = UIApplication.shared.windows.first(where:  { $0.isKeyWindow}) else {
                 return
             }
@@ -147,7 +146,9 @@ class RegisterViewController: UIViewController {
         plusButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         plusButton.setDimensions(width: 128, height: 128)
         
-        let stack = UIStackView(arrangedSubviews: [usernameContainerView,fullNameContainerView,emailContainerView,passwordContainerView,registrationButton])
+        let stack = UIStackView(arrangedSubviews: [usernameContainerView, fullNameContainerView,
+                                                   emailContainerView, passwordContainerView,
+                                                   registrationButton])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually

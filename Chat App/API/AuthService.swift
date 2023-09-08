@@ -37,6 +37,7 @@ struct AuthService {
         let storageRef = STORAGE_PROFILE_IMAGE.child(filename)
         storageRef.putData(imageData, metadata: nil) { (meta, error) in
             storageRef.downloadURL { (url, error) in
+
                 guard let profileImageUrl = url?.absoluteString else { return }
                 
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in

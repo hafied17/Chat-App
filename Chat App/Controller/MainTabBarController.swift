@@ -76,6 +76,8 @@ class MainTabBarController: UITabBarController {
     // MARK: - Selectors
     
     @objc func actionButtonTapped() {
+        print("user \(user)")
+
         guard let user = user else {
             return
         }

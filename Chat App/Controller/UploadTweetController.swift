@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import ActiveLabel
+
 
 class UploadTweetController: UIViewController {
  
@@ -42,16 +44,17 @@ class UploadTweetController: UIViewController {
         return iv
     }()
     
-    private lazy var replyLabel: UILabel = {
-        let label = UILabel()
+    private lazy var replyLabel: ActiveLabel = {
+        let label = ActiveLabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
         label.text = "replying to @spiderman"
+        label.mentionColor = .twitterBlue
         label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         return label
     }()
     
-    private let captionTextView = CaptionTextView()
+    private let captionTextView = InputTextView()
     
     // MARK: - Lifecycle
     
@@ -76,6 +79,8 @@ class UploadTweetController: UIViewController {
         case .reply(let tweet):
             break
         }
+        
+        configureMentionHandler()
     }
     
     // MARK: - Selectors
@@ -132,5 +137,10 @@ class UploadTweetController: UIViewController {
 
     }
     
+    func configureMentionHandler() {
+        replyLabel.handleURLTap { mention in
+            print("DEBUG: ")
+        }
+    }
    
 }
