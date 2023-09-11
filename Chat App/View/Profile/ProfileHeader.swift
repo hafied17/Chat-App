@@ -84,7 +84,7 @@ class ProfileHeader: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.black
         label.numberOfLines = 3
-        label.text = "This is a user bio that will span more than one line for text purposes"
+//        label.text = "This is a user bio that will span more than one line for text purposes"
         return label
     }()
     

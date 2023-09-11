@@ -194,6 +194,14 @@ class TweetCell: UICollectionViewCell{
         
     }
     
+    func createButton(withImageName imageName: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.tintColor = .darkGray
+        button.setDimensions(width: 20, height: 20)
+        return button
+    }
+    
     func configureMentionHandler() {
         captionLabel.handleMentionTap { username in
             self.delegate?.handleFetchUser(withUsername: username)

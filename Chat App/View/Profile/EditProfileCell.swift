@@ -80,6 +80,7 @@ class EditProfileCell: UITableViewCell {
     // MARK: - Selectors
     
     @objc func handleUpdateUserInfo() {
+        print("ken")
         delegate?.updateUserInfo(self)
     }
     
