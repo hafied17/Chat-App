@@ -48,7 +48,7 @@ struct TweetViewModel {
     
     var userInfoText: NSAttributedString {
         let title = NSMutableAttributedString(string: user.fullName,
-                                              attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
+                                              attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.black])
         
         title.append(NSAttributedString(string: " @\(user.username)", attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
         
