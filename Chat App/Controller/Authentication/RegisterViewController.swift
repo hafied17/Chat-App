@@ -113,7 +113,6 @@ class RegisterViewController: UIViewController {
     
     @objc func handleRegistration() {
         guard let profileImage = profileImage else {
-            print("choose image")
             return
         }
 
@@ -121,7 +120,6 @@ class RegisterViewController: UIViewController {
         guard let password = passwordTextField.text else { return }
         guard let username = usernameTextField.text else { return }
         guard let fullName = fullNameTextField.text?.lowercased() else { return }
-        print("ref")
 
         let credentials = AuthCredentials.init(email: email, password: password, fullname: fullName, username: username, profileImage: profileImage)
         AuthService.shared.registerUser(credentials: credentials) { (error, ref) in
